@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+[data-theme= "light"]{
+  --bg-color:#ffffff;
+  --text-color:#333333;
+  --heading-color:#444444;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+[data-theme= "dark"]{
+  --bg-color:#333333;
+  --text-color:#ffffff;
+  --heading-color:#dddddd;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 20px;
+  margin:  0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1{
+  color: var(--heading-color);
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+}
+
+.navbar div {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.page{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 92vh;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar a{
+  text-decoration: none;
+  color: inherit;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.switch label{
+  display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 20px;
+    margin-left: 20px;
+}
+
+.switch .slider{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.switch input:checked +.slider{
+  background-color: #2196f3;
+}
+
+.switch .slider::before{
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 20px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.switch input:checked +.slider:before{
+  transform: translateX(20px);
 }
